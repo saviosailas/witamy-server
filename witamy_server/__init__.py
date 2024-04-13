@@ -6,8 +6,6 @@ app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///witamy.db"
 
-db = SQLAlchemy(app)
-
 api = Api(app=app,
           version="0.1.a",
           description="RESTFul API for witamy mobile and web app",
@@ -17,6 +15,8 @@ api = Api(app=app,
           prefix="/api/v1/",
           validate=True,
           doc="/")
+
+db = SQLAlchemy(app)
 
 from . import urls
 
