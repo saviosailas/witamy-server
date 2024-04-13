@@ -1,1 +1,1 @@
-python -m flask --app=witnamy_server run --debug
+python -m flask --app=witamy_server run --debug
