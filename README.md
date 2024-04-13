@@ -17,5 +17,6 @@ cd /home/download/project/witamy-server
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -r requirement.txt
-bash run.sh
+chmod u+x run.sh
+./run.sh
 ```
