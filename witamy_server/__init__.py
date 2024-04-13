@@ -16,7 +16,7 @@ api = Api(app=app,
           validate=True,
           doc="/")
 
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 from . import urls
 
