@@ -8,3 +8,14 @@ Swaggar document: [https://witnamy.pythonanywhere.com/api/v1/docs/](https://witn
 - [x] Sign up
 - [x] Update password
 - [x] Delete account
+
+
+## Initial setup
+
+```
+cd /home/download/project/witnamy-server
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirement.txt
+bash run.sh
+```
