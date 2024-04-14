@@ -16,11 +16,11 @@ api = Api(app=app,
           validate=True,
           doc="/")
 
-db = SQLAlchemy(app)
+database = SQLAlchemy(app)
 
 from . import urls
 
 @app.cli.command()
 def create_database():
     # python -m flask --app witamy_server create-database
-    db.create_all()
+    database.create_all()
