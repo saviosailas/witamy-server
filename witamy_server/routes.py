@@ -34,6 +34,6 @@ class DeleteAccount(Resource):
 class DebugPipeline(Resource):
     method_decorators = []
 
-    @api.expect("debug_pipeline_parser", debug_input_parser)
+    @api.expect(debug_input_parser)
     def get(self):
         return {}
