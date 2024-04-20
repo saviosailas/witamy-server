@@ -1,7 +1,7 @@
 # witnamy-server
 RESTful API server written using python flask-restx framework.
 
-Swaggar document: [https://witamy.pythonanywhere.com/api/v1/docs/](https://witnamy.pythonanywhere.com/api/v1/docs/)
+Swaggar document: [https://witamy.pythonanywhere.com](https://witnamy.pythonanywhere.com)
 
 # Account management
 - [x] Login
