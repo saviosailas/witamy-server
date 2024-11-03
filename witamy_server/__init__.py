@@ -23,4 +23,10 @@ from . import urls
 @app.cli.command()
 def create_database():
     # python -m flask --app witamy_server create-database
+    # or use flask shell:
+    #   set FLASK_APP=witamy_server
+    #   python -m flask shell
+    #   >>> from witamy_server import database
+    #   >>> database.create_all()
+    #   >>> exit()
     database.create_all()

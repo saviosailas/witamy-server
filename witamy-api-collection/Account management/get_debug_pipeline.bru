@@ -1,0 +1,15 @@
+meta {
+  name: get_debug_pipeline
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/{{restEndpoint}}/{{apiVersion}}/debug-pipeline
+  body: none
+  auth: none
+}
+
+headers {
+  key: {{debugKey}}
+}

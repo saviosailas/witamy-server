@@ -1,0 +1,23 @@
+meta {
+  name: post_sign_up
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/{{restEndpoint}}/{{apiVersion}}/signup
+  body: multipartForm
+  auth: none
+}
+
+body:json {
+  {
+    "username": "testuser",
+    "password": "Password12"
+  } 
+}
+
+body:multipart-form {
+  username: testuser
+  password: Password12
+}

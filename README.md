@@ -1,4 +1,4 @@
-# witnamy-server
+# witamy-server
 RESTful API server written using python flask-restx framework.
 
 Swaggar document: [https://witamy.pythonanywhere.com](https://witnamy.pythonanywhere.com)
