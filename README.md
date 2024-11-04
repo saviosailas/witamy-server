@@ -20,3 +20,7 @@ python3 -m pip install -r requirement.txt
 chmod u+x run.sh
 ./run.sh
 ```
+
+### API Testing
+The API testing is conducted using FOSS (Free and Open Source Software), specifically [Bruno](https://www.usebruno.com/). All the test files are located in the [`witamy-api-collection`](/witamy-api-collection)
+ directory.
