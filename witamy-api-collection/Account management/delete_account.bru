@@ -6,6 +6,11 @@ meta {
 
 delete {
   url: {{baseUrl}}/{{restEndpoint}}/{{apiVersion}}/delete
-  body: none
-  auth: none
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  username: testuser
+  password: Password12
 }
