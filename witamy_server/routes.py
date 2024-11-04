@@ -6,6 +6,8 @@ from flask_restx.utils import HTTPStatus
 from .models import User
 from . import database
 from os import environ
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import jwt_required
 
 class SignUp(Resource):
     method_decorators = []
@@ -57,14 +59,15 @@ class Login(Resource):
             }, HTTPStatus.UNAUTHORIZED
         if user.password == password:
             return {
-                "message": "login sucessful"
+                "message": "login sucessful",
+                "jwt_token": create_access_token(identity=username)
             }
         return {
             "error": "Invalid password"
         }, HTTPStatus.UNAUTHORIZED
     
 class UpdatePassword(Resource):
-    method_decorators = []
+    method_decorators = [jwt_required()]
 
     @api.expect("update_password_parser", password_update_input_parser)
     def put(self):
@@ -100,7 +103,7 @@ class UpdatePassword(Resource):
         }, HTTPStatus.UNAUTHORIZED
     
 class DeleteAccount(Resource):
-    method_decorators = []
+    method_decorators = [jwt_required()]
 
     @api.expect("delete_account_parser", delete_account_input_parser)
     def delete(self):
