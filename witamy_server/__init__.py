@@ -3,6 +3,7 @@ from flask_restx import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from os import environ
+from datetime import timedelta
 
 app = Flask(__name__)
 
@@ -12,7 +13,9 @@ if environ.get("jwt_secret") is not None:
 else:
     app.config["JWT_SECRET_KEY"] = "donot-use-this-key-on-production"
 
-print(app.config["JWT_SECRET_KEY"])
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=10)
+app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=360)
+
 api = Api(app=app,
           version="0.1.a",
           description="RESTFul API for witamy mobile and web app",
