@@ -16,6 +16,21 @@ else:
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=10)
 app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=360)
 
+jwt_authorizations = {
+    'BearerAuth': {
+        'type': 'apiKey',
+        'scheme': 'bearer',
+        'name': 'Authorization',
+        'in': 'header'
+    },
+    'AdminBearerAuth': {
+        'type': 'apiKey',
+        'scheme': 'bearer',
+        'name': 'X-Authorization',
+        'in': 'header'
+    }
+}
+
 api = Api(app=app,
           version="0.1.a",
           description="RESTFul API for witamy mobile and web app",
@@ -24,7 +39,8 @@ api = Api(app=app,
           default_label="Endpoints for managing account",
           prefix="/api/v1/",
           validate=True,
-          doc="/")
+          doc="/",
+          authorizations=jwt_authorizations)
 
 database = SQLAlchemy(app)
 
