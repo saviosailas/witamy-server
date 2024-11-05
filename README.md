@@ -3,6 +3,7 @@ RESTful API server written using python flask-restx framework.
 
 Swaggar document: [https://witamy.pythonanywhere.com](https://witnamy.pythonanywhere.com)
 
+![swagger api](swagger-api.png)
 # Account management
 - [x] Login
 - [x] Sign up
