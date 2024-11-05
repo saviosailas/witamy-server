@@ -1,1 +1,2 @@
-from .users import User
+from .user import Users
+from .user_profile import Profiles

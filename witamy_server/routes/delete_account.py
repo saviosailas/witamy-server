@@ -3,7 +3,7 @@ from flask_restx.utils import HTTPStatus
 from ..parser import delete_account_input_parser
 from .. import api
 from .. import database
-from ..models import User
+from ..models import Users
 from flask_jwt_extended import jwt_required
 
 class DeleteAccount(Resource):
@@ -18,7 +18,7 @@ class DeleteAccount(Resource):
             return {
                 "error": "something went wrong"
             }, HTTPStatus.BAD_REQUEST
-        user = User.query.filter_by(username=username).first()
+        user = Users.query.filter_by(username=username).first()
         if user is None:
             return {
                 "error": "Invalid username"

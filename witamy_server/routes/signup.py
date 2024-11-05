@@ -3,7 +3,7 @@ from flask_restx.utils import HTTPStatus
 from ..parser import signup_input_parser
 from .. import api
 from .. import database
-from ..models import User
+from ..models import Users
 
 class SignUp(Resource):
     method_decorators = []
@@ -17,11 +17,11 @@ class SignUp(Resource):
             return {
                 "error": "something went wrong"
             }, HTTPStatus.BAD_REQUEST
-        if User.query.filter_by(username=username).first() is not None:
+        if Users.query.filter_by(username=username).first() is not None:
             return {
                 "error": "username is not available"
             }, HTTPStatus.CONFLICT
-        user = User()
+        user = Users()
         user.username = username
         user.password = password
         try:

@@ -1,0 +1,25 @@
+meta {
+  name: update_profile
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/{{restEndpoint}}/{{apiVersion}}/profile
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Albert XIV",
+    "username": "testuser",
+    "email": "albert.xiv@yahoo.com",
+    "user_type": "platinum",
+    "profile_picture": "https://www.google.com/brand/pic.png",
+    "connection_count": 0,
+    "locale": "en_US",
+    "about_me": "",
+    "profile_privacy": 0
+  }
+}
