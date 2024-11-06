@@ -29,7 +29,7 @@ class CreateProfile(Resource):
         try:
             database.session.add(profile)
             database.session.commit()
-        except:
+        except Exception as exp:
             return {
                 "message": "something went wrong"
             }, HTTPStatus.BAD_REQUEST
