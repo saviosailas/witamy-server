@@ -1,10 +1,10 @@
 meta {
-  name: update_profile
+  name: profile (update)
   type: http
   seq: 7
 }
 
-post {
+put {
   url: {{baseUrl}}/{{restEndpoint}}/{{apiVersion}}/profile
   body: json
   auth: inherit

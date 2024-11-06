@@ -1,0 +1,24 @@
+meta {
+  name: create_profile
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/{{restEndpoint}}/{{apiVersion}}/create_profile
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Alber XIV",
+    "email": "albert.xiv@yahoo.com",
+    "user_type": "platinum",
+    "profile_picture": "https://jwt.io/img/pic_logo.svg",
+    "connection_count": 0,
+    "locale": "en_US",
+    "about_me": null,
+    "profile_privacy": 1
+  }
+}
