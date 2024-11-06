@@ -6,6 +6,6 @@ api.add_resource(routes.Login, "/login", strict_slashes=False)
 api.add_resource(routes.UpdatePassword, "/update_password", strict_slashes=False)
 api.add_resource(routes.DeleteAccount, "/delete", strict_slashes=False)
 api.add_resource(routes.Profile, "/profile", strict_slashes=False)
-api.add_resource(routes.UpdateProfile, "/profile", strict_slashes=False)
+api.add_resource(routes.CreateProfile, "/create_profile", strict_slashes=False)
 
 api.add_resource(routes.DebugPipeline, "/debug-pipeline", strict_slashes=False)

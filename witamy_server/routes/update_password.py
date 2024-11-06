@@ -9,6 +9,7 @@ from flask_jwt_extended import jwt_required
 class UpdatePassword(Resource):
     method_decorators = [jwt_required()]
 
+    @api.doc(security='BearerAuth')
     @api.expect("update_password_parser", password_update_input_parser)
     def put(self):
         form_data = reqparse.request.form

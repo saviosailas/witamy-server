@@ -9,6 +9,7 @@ from flask_jwt_extended import jwt_required
 class DeleteAccount(Resource):
     method_decorators = [jwt_required()]
 
+    @api.doc(security='BearerAuth')
     @api.expect("delete_account_parser", delete_account_input_parser)
     def delete(self):
         form_data = reqparse.request.form
