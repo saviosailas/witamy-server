@@ -7,7 +7,6 @@ class Profiles(database.Model):
     id = database.Column(database.Integer, primary_key=True)
     user_id = database.Column(database.Integer, database.ForeignKey('users.id'))
     full_name = database.Column(database.String(300), nullable=False)
-    email = database.Column(database.String(300), nullable=False, unique=True)
     user_type = database.Column(database.String(10), nullable=False, default="platinum")
     profile_picture = database.Column(database.String(150))
     connection_count = database.Column(database.Integer, default=0)

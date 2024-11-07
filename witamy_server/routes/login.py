@@ -11,21 +11,21 @@ class Login(Resource):
     @api.expect("login_parser", login_input_parser)
     def post(self):
         form_data = reqparse.request.form
-        username = form_data.get("username")
+        email = form_data.get("email")
         password = form_data.get("password")
-        if username is None or password is None:
+        if email is None or password is None:
             return {
                 "error": "something went wrong"
             }, HTTPStatus.BAD_REQUEST
-        user = Users.query.filter_by(username=username).first()
+        user = Users.query.filter_by(email=email).first()
         if user is None:
             return {
-                "error": "Invalid username"
+                "error": "Invalid email"
             }, HTTPStatus.UNAUTHORIZED
         if user.password == password:
             return {
                 "message": "login sucessful",
-                "jwt_token": create_access_token(identity=username, additional_claims={"user_id" : user.id})
+                "jwt_token": create_access_token(identity=email, additional_claims={"user_id" : user.id})
             }
         return {
             "error": "Invalid password"

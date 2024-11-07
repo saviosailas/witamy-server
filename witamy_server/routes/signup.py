@@ -11,18 +11,18 @@ class SignUp(Resource):
     @api.expect("signup_parser", signup_input_parser)
     def post(self):
         form_data = reqparse.request.form
-        username = form_data.get("username")
+        email = form_data.get("email")
         password = form_data.get("password")
-        if username is None or password is None:
+        if email is None or password is None:
             return {
                 "error": "something went wrong"
             }, HTTPStatus.BAD_REQUEST
-        if Users.query.filter_by(username=username).first() is not None:
+        if Users.query.filter_by(email=email).first() is not None:
             return {
-                "error": "username is not available"
+                "error": "email is not available"
             }, HTTPStatus.CONFLICT
         user = Users()
-        user.username = username
+        user.email = email
         user.password = password
         try:
             database.session.add(user)
@@ -30,7 +30,7 @@ class SignUp(Resource):
         except Exception as exp:
             print(exp)
             return {
-                "error": "something went wrong"
+                "error": f"something went wrong | {exp}"
             }, HTTPStatus.INTERNAL_SERVER_ERROR
         return {
             "message": "account created"
