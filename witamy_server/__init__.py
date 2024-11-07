@@ -2,6 +2,8 @@ from flask import Flask
 from flask_restx import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
+from flask_restx.utils import HTTPStatus
+from flask_jwt_extended.exceptions import NoAuthorizationError
 from os import environ
 from datetime import timedelta
 
@@ -15,6 +17,7 @@ else:
 
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=10)
 app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(days=360)
+app.config['JWT_TOKEN_LOCATION'] = ['headers']
 
 jwt_authorizations = {
     'BearerAuth': {
@@ -47,6 +50,10 @@ database = SQLAlchemy(app)
 jwt = JWTManager(app)
 
 from . import urls
+
+@api.errorhandler(NoAuthorizationError)
+def handle_no_auth_error(error):
+    return {"message": "Missing Authorization Header |"}, HTTPStatus.UNAUTHORIZED
 
 @app.cli.command()
 def create_database():
