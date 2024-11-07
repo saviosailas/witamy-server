@@ -2,8 +2,6 @@ from flask import Flask
 from flask_restx import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
-from flask_restx.utils import HTTPStatus
-from flask_jwt_extended.exceptions import NoAuthorizationError
 from os import environ
 from datetime import timedelta
 
@@ -50,10 +48,6 @@ database = SQLAlchemy(app)
 jwt = JWTManager(app)
 
 from . import urls
-
-@api.errorhandler(NoAuthorizationError)
-def handle_no_auth_error(error):
-    return {"message": "Missing Authorization Header |"}, HTTPStatus.UNAUTHORIZED
 
 @app.cli.command()
 def create_database():
