@@ -9,7 +9,8 @@ Swaggar document: [https://witamy.pythonanywhere.com](https://witnamy.pythonanyw
 - [x] Sign up
 - [x] Update password
 - [x] Delete account
-- [ ] Profile `inprogress`
+- [x] Profile
+- [x] Profile update
 
 
 ## Initial setup
