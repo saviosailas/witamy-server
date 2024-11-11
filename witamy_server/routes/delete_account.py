@@ -20,7 +20,7 @@ class DeleteAccount(Resource):
             return {
                 "error": "something went wrong"
             }, HTTPStatus.BAD_REQUEST
-        user = Users.query.filter_by(username=username).first()
+        user = Users.query.filter_by(email=username).first()
         if user is None:
             return {
                 "error": "Invalid username"
