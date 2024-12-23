@@ -24,7 +24,7 @@ class Login(Resource):
             }, HTTPStatus.UNAUTHORIZED
         if user.password == password:
             return {
-                "message": "login sucessful",
+                "message": "login successful",
                 "jwt_token": create_access_token(identity=email, additional_claims={"user_id" : user.id})
             }
         return {
